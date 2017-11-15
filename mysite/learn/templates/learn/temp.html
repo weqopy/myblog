@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <title>temp 页面</title> -->
+</head>
+<body>
+    {% extends 'learn/base.html' %}
+
+    <script type="text/javascript">
+        console.log('js 测试');
+        var lt = {{ list_3 }};
+        // var lt = {{ list_3|safe }}
+        alert(lt);
+    </script>
+    {% block content %}
+        <h1> temp 页面内容</h1>
+        <p>
+            列表元素<br/>
+            {% for i in list_3 %}
+            {{ i }}<br/>
+            {% endfor %}
+        </p>
+    {% endblock %}
+</body>
+</html>
