@@ -42,7 +42,14 @@ class ListField(models.TextField):
 
 
 class Article(models.Model):
-    labels = ListField()
+    title = models.CharField('标题', max_length=255)
+    content = models.TextField('内容')
+
+    pub_date = models.DateTimeField('发布时间', auto_now=True)
+    update_date = models.DateTimeField('更新时间', auto_now=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Blog(models.Model):
