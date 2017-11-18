@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from learn import views as learn_views
+admin.autodiscover()
 
 
 urlpatterns = [
@@ -24,6 +25,8 @@ urlpatterns = [
     # views.home
     url(r'^$', learn_views.home, name='home'),
     url(r'^temp/$', learn_views.temp, name='temp'),
+
+    url(r'^add_form/$', learn_views.add_form, name='add_form'),
 
 
     url(r'^add/$', learn_views.add, name='add'),

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 import json
+from .forms import LearnForm
 
 
 # Create your views here.
@@ -14,6 +15,19 @@ def home(request):
     # 字典调用
     # 'string_1': string_1, 后者对应 home 中变量，前者对应 html 文件中变量
     return render(request, 'learn/home.html', {'string_1': string_1, 'list_1': list_1, 'dict_1': dict_1, 'list_2': list_2, 'if_num': if_num})
+
+
+def add_form(request):
+    if request.method == 'POST':
+        form = LearnForm(request.POST)
+
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            return HttpResponse(str(int(a) + int(b)))
+    else:
+        form = LearnForm()
+    return render(request, 'learn/add_form.html', {'form': form})
 
 
 def temp(request):
