@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article
+from .models import Article, Person
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -7,3 +7,10 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Article, ArticleAdmin)
+
+
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('name', 'age')
+
+
+admin.site.register(Person, PersonAdmin)

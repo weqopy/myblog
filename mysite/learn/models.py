@@ -13,6 +13,14 @@ class Person(models.Model):
     def __str__(self):
         return self.name
 
+    def my_property(self):
+        return 'name is ' + self.name
+
+    my_property.short_description = 'name description'
+
+    # list_display = ('name_description', )显示非变量内容
+    name_description = property(my_property)
+
 
 class ListField(models.TextField):
     # __metaclass__ = models.Field.f
