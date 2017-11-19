@@ -22,8 +22,8 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    # views.home
-    url(r'^$', learn_views.home, name='home'),
+    # views.index
+    url(r'^$', learn_views.index, name='index'),
     url(r'^temp/$', learn_views.temp, name='temp'),
 
     url(r'^add_form/$', learn_views.add_form, name='add_form'),
